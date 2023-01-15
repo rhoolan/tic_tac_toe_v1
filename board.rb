@@ -13,4 +13,11 @@ class Board
     def empty?(position)
         grid[position[0]][position[1]] == '_'
     end
+
+    def place_mark(position, mark)
+        raise "Not a valid position" if !valid?(position)
+        raise "Position is not empty" if !empty?(position)
+        grid[position[0]][position[1]] = mark
+    end
+
 end

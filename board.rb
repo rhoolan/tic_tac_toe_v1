@@ -24,4 +24,8 @@ class Board
         puts grid.map { |row| row.join(' ')}
     end
 
+    def win_row?(mark)
+        return true if grid.each { |x| x.all? { |tile| tile == mark}}
+    end
+
 end

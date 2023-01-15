@@ -20,4 +20,8 @@ class Board
         grid[position[0]][position[1]] = mark
     end
 
+    def print
+        puts grid.map { |row| row.join(' ')}
+    end
+
 end

@@ -10,4 +10,7 @@ class Board
         position[0].between?(0,2) && position[1].between?(0,2)
     end
 
+    def empty?(position)
+        grid[position[0]][position[1]] == '_'
+    end
 end

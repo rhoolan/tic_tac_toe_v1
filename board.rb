@@ -28,4 +28,9 @@ class Board
         return true if grid.each { |x| x.all? { |tile| tile == mark}}
     end
 
+    def win_col?(mark)
+        return true if grid.transpose.each { |x| x.all? { |tile| tile == mark}}
+    end
+
+
 end

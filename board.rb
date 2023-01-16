@@ -56,4 +56,12 @@ class Board
         return true if win_diag?(mark)
     end
 
+    def empty_positions?
+        grid.each do |row|
+            row.each do |tile|
+                return true if tile == '_'
+            end
+        end
+        return false
+    end
 end

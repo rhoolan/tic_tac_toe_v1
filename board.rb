@@ -50,5 +50,10 @@ class Board
 
     end
 
+    def win?(mark)
+        return true if win_row?(mark)
+        return true if win_col?(mark)
+        return true if win_diag?(mark)
+    end
 
 end

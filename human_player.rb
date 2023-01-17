@@ -12,9 +12,13 @@ class HumanPlayer
         position = [-1] #set to -1 because .between? wont work with nil class
         board_length = 3
 
+        puts " #{mark}'s turn"
+        puts "Please enter a valid position (for example '1 1'): "
+        position = gets.chomp.split('')
+
         #ask for user input until they enter valid input
         until position[0].to_i.between?(0,board_length-1) && position[-1].to_i.between?(0, board_length-1)
-            puts " #{mark}'s turn"
+            puts "Invalid position: "
             puts "Please enter a valid position (for example '1 1'): "
             position = gets.chomp.split('')
         end

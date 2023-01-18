@@ -26,7 +26,6 @@ class Board
     end
 
     def print_board
-        # puts grid.map { |row| row.join(' ')}
         puts '  0 1 2'
         grid.each_with_index do |row, idx1|
             puts "#{idx1.to_s} " + row.join(' ')
@@ -41,8 +40,6 @@ class Board
     end
 
     def win_col?(mark)
-        # return true if grid.transpose.each { |x| x.all? { |tile| tile == mark}}
-
         grid.transpose.each do |col|
             return true if col.all? { |tile| tile == mark}
         end

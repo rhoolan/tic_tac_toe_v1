@@ -25,6 +25,7 @@ class Game
             pos = current_player.get_position
             board.place_mark(pos, current_player.mark)
             if board.win?(current_player.mark)
+                board.print_board
                 puts 'You won!'
                 return
             else

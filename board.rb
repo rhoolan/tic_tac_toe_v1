@@ -30,11 +30,19 @@ class Board
     end
 
     def win_row?(mark)
-        return true if grid.each { |x| x.all? { |tile| tile == mark}}
+        grid.each do |row|
+            return true if row.all? { |tile| tile == mark}
+        end
+        return false
     end
 
     def win_col?(mark)
-        return true if grid.transpose.all? { |x| x.all? { |tile| tile == mark}}
+        # return true if grid.transpose.each { |x| x.all? { |tile| tile == mark}}
+
+        grid.transpose.each do |col|
+            return true if col.all? { |tile| tile == mark}
+        end
+        return false
     end
 
     def win_diag?(mark)
@@ -46,13 +54,16 @@ class Board
             right_to_left << self[[i,-(i+1)]]
         end
 
-        return true if left_to_right.all?(mark) || right_to_left.all?(mark)
+        if left_to_right.all?(mark) || right_to_left.all?(mark)
+            return true 
+        else 
+            return false 
+        end
     end
 
     def win?(mark)
-        return true if win_row?(mark)
-        return true if win_col?(mark)
-        return true if win_diag?(mark)
+        return true if win_row?(mark) || win_col?(mark) || win_diag?(mark)
+        false
     end
 
     def empty_positions?

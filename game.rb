@@ -1,5 +1,6 @@
 require_relative 'board'
 require_relative 'human_player'
+require 'colored2'
 
 class Game 
     attr_reader :board, :current_player, :player1, :player2

@@ -33,5 +33,16 @@ class Game
             puts 'draw'
         end
     end
-    
+
 end
+
+player1 = nil
+player2 = nil
+
+puts 'Enter player one mark'
+player1 = HumanPlayer.new(gets.chomp)
+puts 'Enter player two mark'
+player2 = HumanPlayer.new(gets.chomp)
+
+new = Game.new(player1, player2)
+new.play

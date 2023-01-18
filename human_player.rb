@@ -23,7 +23,7 @@ class HumanPlayer
             position = gets.chomp.split('')
         end
 
-        return position
+        return position.map { |i| i.to_i }
     end
 
 end

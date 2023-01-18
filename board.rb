@@ -34,7 +34,7 @@ class Board
     end
 
     def win_col?(mark)
-        return true if grid.transpose.each { |x| x.all? { |tile| tile == mark}}
+        return true if grid.transpose.all? { |x| x.all? { |tile| tile == mark}}
     end
 
     def win_diag?(mark)
@@ -47,7 +47,6 @@ class Board
         end
 
         return true if left_to_right.all?(mark) || right_to_left.all?(mark)
-
     end
 
     def win?(mark)

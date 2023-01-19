@@ -21,8 +21,17 @@ class Board
     end
 
     def place_mark(position, mark)
-        raise "Not a valid position" if !valid?(position)
-        raise "Position is not empty" if !empty?(position)
+
+        if !valid?(position)
+            puts "Not a valid position"
+            return false
+        end
+
+        if !empty?(position)
+            puts "Position is not empty"
+            return false
+        end
+
         if turn.odd?
             grid[position[0]][position[1]] = mark.red
         else

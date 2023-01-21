@@ -52,9 +52,9 @@ player2 = nil
 
 system("clear")
 puts 'Enter player one mark'
-player1 = HumanPlayer.new(gets.chomp.red)
+player1 = HumanPlayer.new(gets.chomp[0].red)
 puts 'Enter player two mark'
-player2 = HumanPlayer.new(gets.chomp.blue)
+player2 = HumanPlayer.new(gets.chomp[0].blue)
 
 new = Game.new(player1, player2)
 new.play

@@ -26,14 +26,19 @@ class Game
             system("clear")
             board.print_board
             pos = current_player.get_position
-            board.place_mark(pos, current_player.mark)
-            if board.win?(current_player.mark)
-                system("clear")
-                board.print_board
-                puts 'You won!'
-                return
-            else
-                switch_turn
+
+
+            if board.valid?(pos) && board.empty?(pos)
+                board.place_mark(pos, current_player.mark)
+
+                if board.win?(current_player.mark)
+                    system("clear")
+                    board.print_board
+                    puts 'You won!'
+                    return
+                else
+                    switch_turn
+                end
             end
             board.print_board
         end

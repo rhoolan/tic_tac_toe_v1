@@ -1,9 +1,8 @@
 class Board
-    attr_reader :grid, :turn
+    attr_reader :grid
 
     def initialize 
         @grid = Array.new(3) { Array.new(3, '_')}
-        @turn = 1
     end
 
     def [](pos)
@@ -21,23 +20,9 @@ class Board
     end
 
     def place_mark(position, mark)
-
-        if !valid?(position)
-            puts "Not a valid position"
-            return false
-        end
-
-        if !empty?(position)
-            puts "Position is not empty"
-            return false
-        end
-
-        if turn.odd?
-            grid[position[0]][position[1]] = mark
-        else
+        if valid?(position) && empty?(position)
             grid[position[0]][position[1]] = mark
         end
-        @turn += 1
     end
 
     def print_board

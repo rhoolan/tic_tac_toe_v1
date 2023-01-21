@@ -5,8 +5,8 @@ require 'colored2'
 class Game 
     attr_reader :board, :current_player, :player1, :player2
 
-    def initialize(player1_mark, player2_mark)
-        @board = Board.new
+    def initialize(grid_size, player1_mark, player2_mark)
+        @board = Board.new(grid_size)
         @player1 = player1_mark
         @player2 = player2_mark
         @current_player = player1
@@ -51,10 +51,12 @@ player1 = nil
 player2 = nil
 
 system("clear")
+puts 'Enter grid size'
+grid_size = gets.chomp.to_i
 puts 'Enter player one mark'
 player1 = HumanPlayer.new(gets.chomp[0].red)
 puts 'Enter player two mark'
 player2 = HumanPlayer.new(gets.chomp[0].blue)
 
-new = Game.new(player1, player2)
+new = Game.new(grid_size,player1, player2)
 new.play

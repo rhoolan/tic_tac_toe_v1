@@ -1,8 +1,9 @@
 class Board
-    attr_reader :grid
+    attr_reader :grid, :grid_size
 
-    def initialize 
-        @grid = Array.new(3) { Array.new(3, '_')}
+    def initialize(grid_size) 
+        @grid = Array.new(grid_size) { Array.new(grid_size, '_')}
+        @grid_size = grid_size
     end
 
     def [](pos)
@@ -26,7 +27,15 @@ class Board
     end
 
     def print_board
-        puts '  0 1 2'
+        (0...grid_size).each do |i|
+            if i == 0 
+                print "  #{i} "
+            else
+                print "#{i} "
+            end
+        end
+
+        puts
         grid.each_with_index do |row, idx1|
             puts "#{idx1.to_s} " + row.join(' ')
         end

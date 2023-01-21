@@ -3,21 +3,15 @@ require_relative 'human_player'
 require 'colored2'
 
 class Game 
-    attr_reader :board, :current_player, :player1, :player2
+    attr_reader :board, :current_player, :players
 
-    def initialize(grid_size, player1_mark, player2_mark)
+    def initialize(grid_size, players)
         @board = Board.new(grid_size)
-        @player1 = player1_mark
-        @player2 = player2_mark
-        @current_player = player1
+        @players = players
     end
 
     def switch_turn 
-        if current_player == player1
-            @current_player = player2
-        else
-            @current_player = player1
-        end
+        @players.rotate!
     end
 
     def play
@@ -25,6 +19,7 @@ class Game
         while board.empty_positions?
             system("clear")
             board.print_board
+            current_player = players[0]
             pos = current_player.get_position
 
 
@@ -53,10 +48,16 @@ player2 = nil
 system("clear")
 puts 'Enter grid size'
 grid_size = gets.chomp.to_i
-puts 'Enter player one mark'
-player1 = HumanPlayer.new(gets.chomp[0].red)
-puts 'Enter player two mark'
-player2 = HumanPlayer.new(gets.chomp[0].blue)
 
-new = Game.new(grid_size,player1, player2)
+puts 'Enter amount of players'
+player_amount = gets.chomp.to_i
+
+players = []
+(1..player_amount).each do |i|
+    puts "Enter player #{i} mark"
+    players << HumanPlayer.new(gets.chomp[0])
+end 
+
+
+new = Game.new(grid_size,players)
 new.play

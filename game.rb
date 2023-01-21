@@ -21,7 +21,9 @@ class Game
     end
 
     def play
+        system("clear")
         while board.empty_positions?
+            system("clear")
             board.print_board
             pos = current_player.get_position
             board.place_mark(pos, current_player.mark)
@@ -32,8 +34,9 @@ class Game
             else
                 switch_turn
             end
-            puts 'draw'
+            board.print_board
         end
+        puts "Draw"
     end
 
 end

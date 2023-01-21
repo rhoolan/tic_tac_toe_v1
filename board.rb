@@ -33,9 +33,9 @@ class Board
         end
 
         if turn.odd?
-            grid[position[0]][position[1]] = mark.red
+            grid[position[0]][position[1]] = mark
         else
-            grid[position[0]][position[1]] = mark.blue
+            grid[position[0]][position[1]] = mark
         end
         @turn += 1
     end

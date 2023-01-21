@@ -13,7 +13,7 @@ class Board
 
     #valid input will be [row, col]
     def valid?(position)
-        position[0].between?(0,2) && position[1].between?(0,2)
+        position[0].between?(0,grid_size) && position[1].between?(0,grid_size)
     end
 
     def empty?(position)

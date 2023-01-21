@@ -44,6 +44,7 @@ end
 player1 = nil
 player2 = nil
 
+system("clear")
 puts 'Enter player one mark'
 player1 = HumanPlayer.new(gets.chomp)
 puts 'Enter player two mark'

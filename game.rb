@@ -28,6 +28,7 @@ class Game
             pos = current_player.get_position
             board.place_mark(pos, current_player.mark)
             if board.win?(current_player.mark)
+                system("clear")
                 board.print_board
                 puts 'You won!'
                 return
@@ -46,9 +47,9 @@ player2 = nil
 
 system("clear")
 puts 'Enter player one mark'
-player1 = HumanPlayer.new(gets.chomp)
+player1 = HumanPlayer.new(gets.chomp.red)
 puts 'Enter player two mark'
-player2 = HumanPlayer.new(gets.chomp)
+player2 = HumanPlayer.new(gets.chomp.blue)
 
 new = Game.new(player1, player2)
 new.play
